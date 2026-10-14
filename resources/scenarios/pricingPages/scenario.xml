@@ -10,7 +10,7 @@
 
     </overview>
 
-    <settings onlyThis="true">
+    <settings onlyThis="false">
         <tags>web</tags>
     </settings>
 
