@@ -5,10 +5,10 @@
     <overview>
         <description>Web automation test </description>
         <name>Ui test for home page</name>
-        <jira>https://svitlananyzhnikova.atlassian.net//browse/KAN-38</jira>
+        <jira>https://svitlananyzhnikova.atlassian.net//browse/KAN-40</jira>
     </overview>
 
-    <settings onlyThis="false">
+    <settings onlyThis="true">
         <tags>web</tags>
     </settings>
 
