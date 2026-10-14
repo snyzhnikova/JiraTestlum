@@ -1,0 +1,36 @@
+<scenario xmlns="http://www.testlum.com/testing/model/scenario"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.testlum.com/testing/model/scenario scenario.xsd">
+
+    <overview>
+        <description>Web automation test </description>
+        <name>Ui test for home page</name>
+        <jira>https://svitlananyzhnikova.atlassian.net//browse/KAN-38</jira>
+    </overview>
+
+    <settings onlyThis="false">
+        <tags>web</tags>
+    </settings>
+
+    <web comment="Starting web script">
+        <wait comment="Wait for 1 second"
+              time="2"
+              unit="seconds"/>
+        <assert comment="Verify element's attribute value">
+            <attribute comment="Verify attribute innerText of noCodeFullCoverageH1"
+                       locator="homePage.noCodeFullCoverageH1"
+                       name="innerText">
+                <content>No Code, Full Coverages</content>
+            </attribute>
+        </assert>
+        <click comment="Click requestAFreeDemoButton" locator="contactUs.requestaFreeDemoButton"/>
+        <assert comment="Verify element's attribute value">
+            <attribute comment="Verify attribute innerText of haveAQuestionOrWantToTryLetsStartAConversation"
+                       locator="contactUs.haveaQuestionOrWantToTryLetsStartaConversation"
+                       locatorStrategy="locatorId"
+                       name="innerText">
+                <content>Have a question or want to try? Let’s start a conversation!</content>
+            </attribute>
+        </assert>
+    </web>
+</scenario>

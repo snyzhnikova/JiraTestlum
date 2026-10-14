@@ -1,0 +1,35 @@
+<scenario xmlns="http://www.testlum.com/testing/model/scenario"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.testlum.com/testing/model/scenario scenario.xsd">
+
+    <overview>
+        <description>Negative Api test for user login</description>
+        <name>Negative Api test for user login</name>
+        <jira>https://svitlananyzhnikova.atlassian.net//browse/KAN-33</jira>
+    </overview>
+
+    <settings>
+        <tags>api</tags>
+    </settings>
+
+
+    <repeat comment="Using repeat tag to perform a repetitive task"
+            variations="negativeLogin.csv">
+        <http alias="TestApi"
+              comment="Check negative login">
+            <post endpoint="/users/login">
+                <response code="200" file="expected_2.json"/>
+                <body>
+                    <raw>
+                        {
+                          "user": {
+                            "email": "{{email}}",
+                            "password": "{{password}}"
+                          }
+                        }
+                    </raw>
+                </body>
+            </post>
+        </http>
+    </repeat>
+</scenario>

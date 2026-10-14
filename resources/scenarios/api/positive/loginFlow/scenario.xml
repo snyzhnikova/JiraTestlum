@@ -1,0 +1,33 @@
+<scenario xmlns="http://www.testlum.com/testing/model/scenario"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.testlum.com/testing/model/scenario scenario.xsd">
+
+    <overview>
+        <description>Positive api test</description>
+        <name>Positive api test</name>
+        <jira>https://svitlananyzhnikova.atlassian.net//browse/KAN-32</jira>
+
+    </overview>
+
+    <settings>
+        <variations>negativeLogin.csv</variations>
+        <tags>api</tags>
+    </settings>
+
+    <http alias="TestApi"
+          comment="Check negative login">
+        <post endpoint="/users/login">
+            <response file="expected_1.json"/>
+            <body>
+                <raw>
+                    {
+                    "user": {
+                    "email": "{{email}}",
+                    "password": "{{password}}"
+                    }
+                    }
+                </raw>
+            </body>
+        </post>
+    </http>
+</scenario>
